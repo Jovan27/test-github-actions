@@ -12,4 +12,4 @@ jobs:
         id: step2
         run: echo "::set-output name=foo::bar"
       - name: Read those outputs
-        run: echo "${{ steps.step2.outputs }}"
+        run: echo "${{ toJSON(steps.step2.outputs) }}"
