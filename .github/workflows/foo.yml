@@ -1,0 +1,15 @@
+name: Foo
+
+on: push
+
+jobs:
+  test-outputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo simple string
+        run: echo 'Hello World!'
+      - name: Make some outputs
+        id: step2
+        run: echo "::set-output=foo::bar"
+      - name: Read those outputs
+        run: echo "${{ steps.step2.outputs.foo }}"
