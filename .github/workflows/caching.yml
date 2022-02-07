@@ -1,0 +1,16 @@
+name: Cache Playground
+
+on: [push]
+
+jobs:
+  cache-playground:
+    runs-on: ubuntu-latest
+    env:
+      custom-environment-variable-1: hello world
+      custom-environment-variable-2: true
+    steps:
+      - name: Echo env variables
+        run: |
+          echo custom-environment-variable-1 ${{ env.custom-environment-variable-1 }}
+          echo custom-environment-variable-2 ${{ env.custom-environment-variable-2 }}
+      
