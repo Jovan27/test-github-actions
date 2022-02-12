@@ -1,0 +1,9 @@
+name: Playground workflow
+
+on: push
+
+jobs:
+  playground-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: Echo github stuff
