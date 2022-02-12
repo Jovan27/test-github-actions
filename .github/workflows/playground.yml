@@ -9,8 +9,6 @@ jobs:
       - run: echo 'true' == true ${{ 'true' == true }}
       - run: echo true == true ${{ true == true }}
       - run: echo 'true' == 'true' ${{ 'true' == 'true' }}
-      - run: echo {} == {} ${{ {} == {} }}
       - run: echo '' == '' ${{ '' == '' }}
-      - run: echo [] == [] ${{ [] == [] }}
       - run: echo 1 == 1 ${{ 1 == 1 }}
       - run: echo 1 > 1 ${{ 1 > 1 }}
