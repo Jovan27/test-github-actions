@@ -6,4 +6,8 @@ jobs:
   playground-job:
     runs-on: ubuntu-latest
     steps:
-      - run: Echo github stuff
+      - run: echo ${{ 'true' == true }}
+      - run: echo ${{ 'true' = true }}
+      - run: echo ${{ {} == {} }}
+      - run: echo ${{ '' === '' }}
+      - run: echo ${{ []] === []] }}
