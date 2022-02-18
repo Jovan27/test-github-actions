@@ -1,0 +1,24 @@
+name: Cache Playground
+
+on: [push]
+
+jobs:
+  cache-playground:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test cache-key before checkout
+        run: echo  ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Test cache-key after checkout
+        run: echo  ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      # - name: Cache node modules
+      #   uses: actions/cache@v2
+      #   env:
+      #     cache-key: ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
+      #   with:
+      #     key: ${{ env.cache-key }}
+      #     path: ~/.npm

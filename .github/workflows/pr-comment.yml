@@ -1,0 +1,27 @@
+name: Test PR Comments
+
+on: [pull_request_target]
+
+jobs:
+  pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Test pr comments!'
+            })
+
+      - uses: dmitry/cypress-report-action@v1
+        with:
+          token: ${{ github.token }}
+          pathname: result.json
+        if: always()
+
