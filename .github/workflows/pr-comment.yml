@@ -24,4 +24,3 @@ jobs:
           token: ${{ github.token }}
           pathname: result.json
         if: always()
-
